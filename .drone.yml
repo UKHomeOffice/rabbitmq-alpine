@@ -1,0 +1,13 @@
+pipeline:
+
+  build:
+    image: ukhomeoffice/rabbitmq-alpine
+    repo: quay.io/ukhomeofficedigital/rabbitmq-alpine
+    secrets: [ docker_username, docker_password ]
+    registry: quay.io
+    force_tag: true
+    tags:
+      - ${DRONE_COMMIT_SHA}
+      - ${DRONE_BUILD_NUMBER}
+    when:
+      event: push
