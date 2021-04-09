@@ -4,7 +4,6 @@ pipeline:
     image: ukhomeoffice/drone-docker
     # repo: quay.io/ukhomeofficedigital/rabbitmq-alpine
     secrets: [ docker_username, docker_password ]
-    commands: echo $$docker_username
     # registry: quay.io
     # force_tag: true
     # tags:
