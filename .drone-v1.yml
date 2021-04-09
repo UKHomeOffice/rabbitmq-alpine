@@ -12,17 +12,25 @@ steps:
   pull: if-not-exists
   image: plugins/docker
   settings:
+    dockerfile: Dockerfile
     repo: quay.io/ukhomeofficedigital/rabbitmq-alpine
-    secrets: [ docker_username, docker_password ]
     registry: quay.io
     force_tag: true
     tags:
       - ${DRONE_COMMIT_SHA}
       - ${DRONE_BUILD_NUMBER}
       - latest
+    environment:
+      DOCKER_PASSWORD:
+        from_secret: docker_password
+      DOCKER_USERNAME:
+        from_secret: docker_username
     when:
-      event: push
-
+      branch:
+        exclude:
+        - master
+      event:
+      - push
 
 - name: trivy_scan
   pull: if-not-exists
