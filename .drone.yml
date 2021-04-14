@@ -1,14 +1,18 @@
-pipeline:
-
-  build:
-    image: ukhomeoffice/drone-docker
-    repo: quay.io/ukhomeofficedigital/rabbitmq-alpine
-    secrets: [ docker_username, docker_password ]
-    registry: quay.io
-    force_tag: true
-    tags:
-      - ${DRONE_COMMIT_SHA}
-      - ${DRONE_BUILD_NUMBER}
-      - latest
-    when:
-      event: push
+#
+# pipeline:
+#
+#   build:
+#     image: ukhomeoffice/drone-docker
+#     # repo: quay.io/ukhomeofficedigital/rabbitmq-alpine
+#     secrets: [ docker_username, docker_password ]
+#     commands:
+#       - export docker_username=$${docker_username}
+#       - echo $${docker_username}
+#     # registry: quay.io
+#     # force_tag: true
+#     # tags:
+#     #   - ${DRONE_COMMIT_SHA}
+#     #   - ${DRONE_BUILD_NUMBER}
+#     #   - latest
+#     when:
+#       event: push
