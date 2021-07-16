@@ -4,7 +4,7 @@
 ## Installing & getting started
 > Run the following steps to get base image available
 
-1) Clone this Repo
+1) Clone this Repo.
 2) Run the docker build and run commands
    * `docker build -t rabbitmq-alpine .`
    * `docker run -ti rabbitmq-alpine sh`
