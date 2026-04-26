@@ -1,5 +1,3 @@
 FROM rabbitmq:3-alpine
-RUN apk update && \
-    apk upgrade --no-cache
-
+RUN apk -U upgrade libcrypto3 libssl3 --quiet
 CMD rabbitmq-server
